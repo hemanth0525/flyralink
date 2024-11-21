@@ -77,7 +77,7 @@ export default function Home() {
       console.error('Error shortening URL:', error)
       toast({
         title: "Error",
-        description: "Failed to shorten URL. Please try again.",
+        description: "Custom slug already exists. Please try again with a different one.",
         variant: "destructive",
       })
     } finally {
@@ -122,7 +122,7 @@ export default function Home() {
       console.error('Error shortening URLs:', error)
       toast({
         title: "Error",
-        description: "Failed to shorten batch URLs. Please try again.",
+        description: "Failed to shorten batch URLs or one of the slugs already exists. Please try again.",
         variant: "destructive",
       })
     } finally {
