@@ -1,36 +1,65 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# **FlyraLink** 🚀🔗
 
-## Getting Started
+**FlyraLink** provides an easy-to-use platform for shortening links with powerful features like custom slugs, password protection, and dynamic redirects. We believe that link shortening should be flexible, fast, and user-friendly.
 
-First, run the development server:
+## **Visit Our Website**
+For more information and to start using FlyraLink, visit our [official website](https://flyra.link). Explore all the features and see how FlyraLink can make your link shortening process easier and more efficient.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## **What We Do**
+FlyraLink is your go-to tool for creating custom short links. Whether you're sharing personal links or running marketing campaigns, FlyraLink helps you:
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- Shorten URLs with custom slugs (including emojis!)
+- Add password protection to your links for enhanced security 🔒
+- Track clicks and set limits for link expiration ⏳
+- Create self-destructing links that disappear after use 📅
+- Generate branded QR codes 📱
+- And much more...
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Our goal is to provide a seamless experience for everyone—from casual users to marketers and businesses—while making link management smarter and more secure.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## **How to Contribute**
+We’re always looking for contributions! Whether you want to help improve the codebase, report bugs, or suggest new features, we welcome your help.
 
-## Learn More
+### Steps to Contribute:
 
-To learn more about Next.js, take a look at the following resources:
+1. **Fork the repo**: Click the "Fork" button at the top of this repository to create your own copy of the code.
+   
+2. **Clone your fork**:
+   ```bash
+   git clone https://github.com/hemanth0525/flyralink.git
+   cd flyralink
+   ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+3. **Create a new branch** for your feature or bug fix:
+   ```bash
+   git checkout -b feature/my-new-feature
+   ```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+4. **Make your changes**: Open the project in your code editor and start coding! ✨
 
-## Deploy on Vercel
+5. **Commit your changes**:
+   ```bash
+   git add .
+   git commit -m "Add new feature"
+   ```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+6. **Push your changes**:
+   ```bash
+   git push origin feature/my-new-feature
+   ```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+7. **Create a Pull Request**: Go to the GitHub page for FlyraLink and open a pull request with a description of your changes. We’ll review it as soon as possible!
+
+## **License**
+FlyraLink is open-source and released under the MIT License. Feel free to modify and share it, but please follow the license guidelines.
+
+---
+
+## **Join the Community**
+We’d love for you to join us on GitHub and contribute to this exciting project. Let’s shorten the web together!
+
+- [GitHub Repository](https://github.com/hemanth0525/flyralink)
+- [Issues Page](https://github.com/hemanth0525/flyralink/issues)
+- [Discussions](https://github.com/hemanth0525/flyralink/discussions)
+
+Thanks for your interest in FlyraLink! 🌟
