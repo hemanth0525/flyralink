@@ -3,8 +3,13 @@ import { db } from '@/lib/firebase-admin';
 import { redis } from '@/lib/redis';
 import PasswordProtectedForm from '@/components/PasswordProtectedForm';
 
-export default async function SlugPage({ params }: { params: { slug: string } }) {
-    const decodedSlug = decodeURIComponent(params.slug);
+interface PageProps<T> {
+    params: T;
+}
+
+export default async function SlugPage({ params }: PageProps<Promise<{ slug: string }>>) {
+    const { slug } = await params;
+    const decodedSlug = decodeURIComponent(slug);
 
     // Check Redis cache
     let cachedUrlData = null;
