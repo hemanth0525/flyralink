@@ -282,7 +282,7 @@ export default function Home() {
     },
     {
       title: "URL Caching",
-      description: "Cache shortened URLs for faster redirection and improved performance.",
+      description: "We cache shortened URLs for faster redirection and improved performance.",
       icon: <Refresh className="h-6 w-6" />,
     }
   ]
