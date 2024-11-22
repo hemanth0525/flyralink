@@ -1,6 +1,28 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+/* Custom scrollbar styles */
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--muted);
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-[#FF00EA] rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-[#00FFFF];
+}
+
+body{
+  overscroll-behavior-y: none;
+  overflow-x: hidden;
+}
 
 @layer base {
   :root {
@@ -72,7 +94,6 @@
   * {
     @apply border-border;
   }
-
   body {
     @apply bg-background text-foreground;
     font-feature-settings: "rlig" 1, "calt" 1;
@@ -101,13 +122,13 @@
 }
 
 .glow {
-  box-shadow: 0 0 5px theme('colors.primary.DEFAULT'),
-    0 0 20px theme('colors.primary.DEFAULT');
+  box-shadow: 0 0 5px theme("colors.primary.DEFAULT"),
+    0 0 20px theme("colors.primary.DEFAULT");
 }
 
 .text-glow {
-  text-shadow: 0 0 5px theme('colors.primary.DEFAULT'),
-    0 0 20px theme('colors.primary.DEFAULT');
+  text-shadow: 0 0 5px theme("colors.primary.DEFAULT"),
+    0 0 20px theme("colors.primary.DEFAULT");
 }
 
 .feature-card {
@@ -120,7 +141,7 @@
 }
 
 .feature-card::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
@@ -129,9 +150,7 @@
   border-radius: inherit;
   padding: 2px;
   background: linear-gradient(45deg, #ff00ea, #00ffff);
-  -webkit-mask:
-    linear-gradient(#fff 0 0) content-box,
-    linear-gradient(#fff 0 0);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
   mask-composite: exclude;
   opacity: 0;

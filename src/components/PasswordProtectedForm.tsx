@@ -42,17 +42,17 @@ export default function PasswordProtectedForm({ slug }: { slug: string }) {
     }
 
     return (
-        <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-purple-400 via-pink-500 to-red-500">
+        <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 p-4">
             <motion.div
                 initial={{ opacity: 0, y: -50 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
-                className="bg-white p-8 rounded-lg shadow-2xl w-full max-w-md"
+                className="bg-background p-6 sm:p-8 rounded-lg shadow-2xl w-full max-w-sm sm:max-w-md"
             >
-                <h2 className="text-2xl font-bold mb-6 text-center text-gray-800">Password Protected Link</h2>
+                <h2 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-6 text-center text-foreground">Password Protected Link</h2>
                 <form onSubmit={handleSubmit} className="space-y-4">
                     <div>
-                        <Label htmlFor="password" className="text-sm font-medium text-gray-700">Password</Label>
+                        <Label htmlFor="password" className="text-sm font-medium text-foreground/70">Password</Label>
                         <Input
                             id="password"
                             type="password"
@@ -60,7 +60,7 @@ export default function PasswordProtectedForm({ slug }: { slug: string }) {
                             onChange={(e) => setPassword(e.target.value)}
                             placeholder="Enter password"
                             required
-                            className="mt-1"
+                            className="mt-1 w-full"
                         />
                     </div>
                     <Button type="submit" className="w-full" disabled={isLoading}>
@@ -71,3 +71,4 @@ export default function PasswordProtectedForm({ slug }: { slug: string }) {
         </div>
     )
 }
+

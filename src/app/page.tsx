@@ -306,17 +306,17 @@ export default function Home() {
   ]
 
   return (
-    <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div className="container mt-4 mx-auto py-8 sm:py-12">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
-        className="text-center mb-12"
+        className="text-center mb-8 sm:mb-12"
       >
-        <h1 className="font-brand text-4xl sm:text-5xl md:text-6xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-[#FF00EA] to-[#00FFFF] animate-gradient">
+        <h1 className="font-brand text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 bg-clip-text text-transparent bg-gradient-to-r from-[#FF00EA] to-[#00FFFF] animate-gradient">
           Shorten. Customize. Share.
         </h1>
-        <p className="text-xl mb-8 text-foreground/80 max-w-2xl mx-auto">
+        <p className="text-lg sm:text-xl mb-6 sm:mb-8 text-foreground/80 max-w-2xl mx-auto">
           Create powerful, customizable short links with FlyraLink.
           Emoji slugs, self-destructing links, and more - all for free!
         </p>
@@ -326,10 +326,10 @@ export default function Home() {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 0.2 }}
-        className="bg-accent rounded-lg p-6 mb-12 shadow-lg relative overflow-hidden"
+        className="bg-accent rounded-lg p-4 sm:p-6 mb-8 sm:mb-12 shadow-lg relative overflow-hidden"
       >
         <div className="absolute inset-0 bg-gradient-to-r from-[#FF00EA] to-[#00FFFF] opacity-10 animate-gradient"></div>
-        <form onSubmit={handleSubmit} className="space-y-6 relative z-10">
+        <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6 relative z-10">
           <div>
             <Label htmlFor="url">Enter your long URL</Label>
             <Input
@@ -343,7 +343,7 @@ export default function Home() {
             />
           </div>
 
-          <div className="flex space-x-4">
+          <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
             <div className="flex-1">
               <Label htmlFor="customSlug">Custom slug (optional)</Label>
               <div className="mt-1 flex rounded-md shadow-sm">
@@ -579,28 +579,30 @@ https://example3.com, my-slug-3`}
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="bg-accent rounded-lg p-6 mb-12 shadow-lg"
+          className="bg-accent rounded-lg p-4 sm:p-6 mb-8 sm:mb-12 shadow-lg"
         >
-          <h2 className="text-2xl font-bold mb-4">Your Shortened URL</h2>
-          <div className="flex items-center space-x-2 mb-4">
-            <Input value={shortenedUrl} readOnly />
-            <TooltipProvider>
-              <Tooltip>
-                <TooltipTrigger asChild>
-                  <Button size="icon" onClick={handleCopy}>
-                    <Copy className="h-4 w-4" />
-                  </Button>
-                </TooltipTrigger>
-                <TooltipContent>
-                  <p>Copy to clipboard</p>
-                </TooltipContent>
-              </Tooltip>
-            </TooltipProvider>
-            <Button onClick={handleRedirect}>Open Link</Button>
+          <h2 className="text-xl sm:text-2xl font-bold mb-4">Your Shortened URL</h2>
+          <div className="flex flex-col sm:flex-row items-center space-y-2 sm:space-y-0 sm:space-x-2 mb-4">
+            <Input value={shortenedUrl} readOnly className="flex-grow" />
+            <div className="flex space-x-2">
+              <TooltipProvider>
+                <Tooltip>
+                  <TooltipTrigger asChild>
+                    <Button size="icon" onClick={handleCopy}>
+                      <Copy className="h-4 w-4" />
+                    </Button>
+                  </TooltipTrigger>
+                  <TooltipContent>
+                    <p>Copy to clipboard</p>
+                  </TooltipContent>
+                </Tooltip>
+              </TooltipProvider>
+              <Button onClick={handleRedirect}>Open Link</Button>
+            </div>
           </div>
-          <div className="flex justify-between items-center">
-            <div>
-              <Button variant="outline" className="mr-2" onClick={handleShare}>
+          <div className="flex flex-col sm:flex-row justify-between items-center space-y-4 sm:space-y-0">
+            <div className="flex flex-wrap justify-center sm:justify-start gap-2">
+              <Button variant="outline" onClick={handleShare}>
                 <Share2 className="h-4 w-4 mr-2" />
                 Share
               </Button>
@@ -619,14 +621,14 @@ https://example3.com, my-slug-3`}
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="bg-accent rounded-lg p-6 mb-12 shadow-lg"
+          className="bg-accent rounded-lg p-4 sm:p-6 mb-8 sm:mb-12 shadow-lg"
         >
-          <h2 className="text-2xl font-bold mb-4">Batch Results</h2>
-          <div className="space-y-2">
+          <h2 className="text-xl sm:text-2xl font-bold mb-4">Batch Results</h2>
+          <div className="space-y-2 max-h-[300px] overflow-y-auto">
             {batchResults.map((result, index) => (
-              <div key={index} className="flex justify-between items-center">
-                <span className="truncate flex-1 mr-2">{result.original}</span>
-                <span className="truncate flex-1 mr-2">{result.shortened}</span>
+              <div key={index} className="flex flex-col sm:flex-row justify-between items-center space-y-2 sm:space-y-0 sm:space-x-2">
+                <span className="truncate w-full sm:w-1/3">{result.original}</span>
+                <span className="truncate w-full sm:w-1/3">{result.shortened}</span>
                 <Button size="sm" onClick={() => navigator.clipboard.writeText(result.shortened)}>
                   Copy
                 </Button>
@@ -641,28 +643,28 @@ https://example3.com, my-slug-3`}
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 0.4 }}
-        className="mb-12"
+        className="mb-8 sm:mb-12"
         id="features"
       >
-        <h2 className="text-3xl font-bold text-center mb-8">Features</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <h2 className="text-2xl sm:text-3xl font-bold text-center mb-6 sm:mb-8">Features</h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
           {features.map((feature, index) => (
             <motion.div
               key={feature.title}
-              className="feature-card bg-card text-card-foreground rounded-lg p-6 shadow-lg hover:shadow-xl transition-all duration-300 relative overflow-hidden"
+              className="feature-card bg-card text-card-foreground rounded-lg p-4 sm:p-6 shadow-lg hover:shadow-xl transition-all duration-300 relative overflow-hidden"
               whileHover={{ scale: 1.05 }}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
             >
               <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#FF00EA] to-[#00FFFF]"></div>
-              <div className="flex items-center mb-4">
-                <div className="mr-4 p-2 rounded-full bg-primary/10">
+              <div className="flex items-center mb-3 sm:mb-4">
+                <div className="mr-3 sm:mr-4 p-2 rounded-full bg-primary/10">
                   <div className="text-primary">
                     {feature.icon}
                   </div>
                 </div>
-                <h3 className="text-xl font-semibold">{feature.title}</h3>
+                <h3 className="text-lg sm:text-xl font-semibold">{feature.title}</h3>
               </div>
               <p className="text-sm text-muted-foreground">{feature.description}</p>
             </motion.div>
@@ -675,19 +677,19 @@ https://example3.com, my-slug-3`}
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 0.6 }}
-        className="mb-12"
+        className="mb-8 sm:mb-12"
         id="compare"
       >
-        <h2 className="text-3xl font-bold text-center mb-8">How We Compare</h2>
+        <h2 className="text-2xl sm:text-3xl font-bold text-center mb-6 sm:mb-8">How We Compare</h2>
         <div className="overflow-x-auto">
           <table className="w-full text-sm text-left">
             <thead className="text-xs uppercase bg-primary text-primary-foreground">
-              <tr className="justify-center items-center">
-                <th scope="col" className="px-6 py-3 rounded-tl-lg justify-center items-center">Features</th>
-                <th scope="col" className="px-6 py-3 justify-center items-center">FlyraLink</th>
-                <th scope="col" className="px-6 py-3">Bitly</th>
-                <th scope="col" className="px-6 py-3">TinyURL</th>
-                <th scope="col" className="px-6 py-3 rounded-tr-lg">Rebrandly</th>
+              <tr>
+                <th scope="col" className="px-4 sm:px-6 py-3 rounded-tl-lg">Features</th>
+                <th scope="col" className="px-4 sm:px-6 py-3">FlyraLink</th>
+                <th scope="col" className="px-4 sm:px-6 py-3">Bitly</th>
+                <th scope="col" className="px-4 sm:px-6 py-3">TinyURL</th>
+                <th scope="col" className="px-4 sm:px-6 py-3 rounded-tr-lg">Rebrandly</th>
               </tr>
             </thead>
             <tbody>
@@ -699,19 +701,19 @@ https://example3.com, my-slug-3`}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                 >
-                  <th scope="row" className="px-6 py-4 font-medium justify-center items-center">
+                  <th scope="row" className="px-4 sm:px-6 py-4 font-medium">
                     {row.feature}
                   </th>
-                  <td className="px-6 py-4 justify-center items-center">
+                  <td className="px-4 sm:px-6 py-4">
                     <ComparisonCell value={row.flyra} />
                   </td>
-                  <td className="px-6 py-4">
+                  <td className="px-4 sm:px-6 py-4">
                     <ComparisonCell value={row.bitly} />
                   </td>
-                  <td className="px-6 py-4">
+                  <td className="px-4 sm:px-6 py-4">
                     <ComparisonCell value={row.tiny} />
                   </td>
-                  <td className="px-6 py-4">
+                  <td className="px-4 sm:px-6 py-4">
                     <ComparisonCell value={row.rebrandly} />
                   </td>
                 </motion.tr>
@@ -719,7 +721,7 @@ https://example3.com, my-slug-3`}
             </tbody>
           </table>
         </div>
-        <p className="mt-4 text-center text-sm text-muted-foreground">
+        <p className="mt-4 text-center text-xs sm:text-sm text-muted-foreground">
           FlyraLink offers a comprehensive set of features for free, including self-destructing links, custom QR codes, and more. No sign-up required!
         </p>
       </motion.section>
@@ -736,7 +738,7 @@ function ComparisonCell({ value }: { value: boolean | string }) {
         animate={{ scale: 1 }}
         transition={{ type: "spring", stiffness: 500, damping: 30 }}
       >
-        <Check className="text-green-500 h-6 w-6" />
+        <Check className="text-green-500 h-5 w-5 sm:h-6 sm:w-6" />
         <span className="sr-only">Yes</span>
       </motion.div>
     ) : (
@@ -746,7 +748,7 @@ function ComparisonCell({ value }: { value: boolean | string }) {
         animate={{ scale: 1 }}
         transition={{ type: "spring", stiffness: 500, damping: 30 }}
       >
-        <X className="text-red-500 h-6 w-6" />
+        <X className="text-red-500 h-5 w-5 sm:h-6 sm:w-6" />
         <span className="sr-only">No</span>
       </motion.div>
     )
@@ -758,7 +760,7 @@ function ComparisonCell({ value }: { value: boolean | string }) {
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
     >
-      <span className="text-sm">{value}</span>
+      <span className="text-xs sm:text-sm">{value}</span>
     </motion.div>
   )
 }

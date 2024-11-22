@@ -31,6 +31,8 @@ const shortenSchema = z.object({
             android: z.string().url().optional(),
         })
     ).optional(),
+    qrCodeColor: z.string().optional(),
+    customLogo: z.any().optional(),
 })
 
 const batchShortenSchema = z.array(
@@ -176,7 +178,7 @@ async function shortenUrl(url: string, customSlug?: string, additionalData?: Add
         const qrCodeBuffer = Buffer.from(qrCode.split(',')[1], 'base64')
 
         const qrSize = 1000 // Adjust as needed
-        const logoSize = qrSize * 0.2 // Logo size is 20% of QR code size
+        const logoSize = Math.round(qrSize * 0.2) // Logo size is 20% of QR code size
 
         const qrWithLogo = await sharp(qrCodeBuffer)
             .resize(qrSize, qrSize)
